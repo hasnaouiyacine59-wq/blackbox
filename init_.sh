@@ -35,18 +35,18 @@ docker pull quay.io/mylastres0rt05/tor-proxy:latest
 docker pull quay.io/mylastres0rt05/thor-session:v1.44
 docker pull quay.io/mylastres0rt05/thor-session:v1.43
 docker pull quay.io/mylastres0rt05/thor-session:v1.42
-docker pull quay.io/mylastres0rt05/thor-session:v1.41
-docker pull quay.io/mylastres0rt05/thor-session:v1.40
-docker pull quay.io/mylastres0rt05/thor-session:v1.39
+#docker pull quay.io/mylastres0rt05/thor-session:v1.41
+#docker pull quay.io/mylastres0rt05/thor-session:v1.40
+#docker pull quay.io/mylastres0rt05/thor-session:v1.39
 
 # Tag for local use
 docker tag quay.io/mylastres0rt05/tor-proxy:latest tor-proxy
 docker tag quay.io/mylastres0rt05/thor-session:v1.44 thor-session:v1.44
 docker tag quay.io/mylastres0rt05/thor-session:v1.43 thor-session:v1.43
 docker tag quay.io/mylastres0rt05/thor-session:v1.42 thor-session:v1.42
-docker tag quay.io/mylastres0rt05/thor-session:v1.41 thor-session:v1.41
-docker tag quay.io/mylastres0rt05/thor-session:v1.40 thor-session:v1.40
-docker tag quay.io/mylastres0rt05/thor-session:v1.39 thor-session:v1.39
+#docker tag quay.io/mylastres0rt05/thor-session:v1.41 thor-session:v1.41
+#docker tag quay.io/mylastres0rt05/thor-session:v1.40 thor-session:v1.40
+#docker tag quay.io/mylastres0rt05/thor-session:v1.39 thor-session:v1.39
 
 # Create shared log file
 mkdir -p ~/thor-logs && touch ~/thor-logs/sessions.log
@@ -64,9 +64,9 @@ echo "Starting thor-session containers..."
 docker run -d --name session-9050 -e SOCKS_PORT=9050 -e API_PORT=5000 --network host -v ~/thor-logs:/logs thor-session:v1.44
 docker run -d --name session-9052 -e SOCKS_PORT=9052 -e API_PORT=5001 --network host -v ~/thor-logs:/logs thor-session:v1.43
 docker run -d --name session-9054 -e SOCKS_PORT=9054 -e API_PORT=5002 --network host -v ~/thor-logs:/logs thor-session:v1.42
-docker run -d --name session-9056 -e SOCKS_PORT=9056 -e API_PORT=5003 --network host -v ~/thor-logs:/logs thor-session:v1.41
-docker run -d --name session-9058 -e SOCKS_PORT=9058 -e API_PORT=5004 --network host -v ~/thor-logs:/logs thor-session:v1.40
-docker run -d --name session-9060 -e SOCKS_PORT=9060 -e API_PORT=5005 --network host -v ~/thor-logs:/logs thor-session:v1.39
+docker run -d --name session-9056 -e SOCKS_PORT=9056 -e API_PORT=5003 --network host -v ~/thor-logs:/logs thor-session:v1.44
+docker run -d --name session-9058 -e SOCKS_PORT=9058 -e API_PORT=5004 --network host -v ~/thor-logs:/logs thor-session:v1.43
+docker run -d --name session-9060 -e SOCKS_PORT=9060 -e API_PORT=5005 --network host -v ~/thor-logs:/logs thor-session:v1.41
 
 echo "All containers running. Tailing logs..."
 tail -f ~/thor-logs/sessions.log
