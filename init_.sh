@@ -11,6 +11,7 @@ echo "Wiping all Docker containers and images..."
 docker stop $(docker ps -aq) 2>/dev/null || true
 docker rm -f $(docker ps -aq) 2>/dev/null || true
 docker rmi  $(docker images -q) --force   2>/dev/null || true
+docker system prune -af --volumes 2>/dev/null
 
 # Remove existing directory
 if [ -d "$DIR_NAME" ]; then
