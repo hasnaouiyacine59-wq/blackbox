@@ -1,0 +1,7 @@
+content/
+used_proxies.txt
+ip_log.txt
+playwright-profile-*
+__pycache__
+*.pyc
+*.png

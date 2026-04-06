@@ -1,0 +1,6 @@
+SocksPort 0.0.0.0:${SOCKS_PORT}
+ControlPort ${CONTROL_PORT}
+CookieAuthentication 0
+HashedControlPassword ""
+DataDirectory /var/lib/tor
+Log notice stdout
