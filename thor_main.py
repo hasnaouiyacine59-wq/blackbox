@@ -186,7 +186,7 @@ def run_session(elements: dict, session_id: int = 0, proxy_config: dict = None):
         _print("═" * 52 + "\n")
 
         launch_kwargs = dict(
-            headless=False,
+            headless=not _args.debug,
             proxy=proxy_config,
             user_agent=chrome_ua,
             viewport=chosen_viewport,
@@ -400,6 +400,16 @@ def run_session(elements: dict, session_id: int = 0, proxy_config: dict = None):
                 // --- mimeTypes (proper array-like) ---
                 Object.defineProperty(navigator, 'mimeTypes', {{ get: () => {{ return {{ length: 2, 0: {{ type: 'application/pdf' }}, 1: {{ type: 'application/x-google-chrome-pdf' }} }}; }} }});
             """)
+
+            # --- visit cryptyos ad page and wait for ads to load ---
+            _print("Visiting cryptyos.nl.eu.org...")
+            try:
+                page.goto("https://cryptyos.nl.eu.org/", wait_until="domcontentloaded", timeout=60000)
+                ad_wait = random.uniform(10, 15)
+                _print(f"Waiting {ad_wait:.1f}s for ads to load...")
+                time.sleep(ad_wait)
+            except Exception as e:
+                _print(f"cryptyos visit failed: {e}")
 
             page.goto(f"https://mohmal.eu.org/?{EMAIL}", wait_until="domcontentloaded", timeout=60000)
             time.sleep(2)
