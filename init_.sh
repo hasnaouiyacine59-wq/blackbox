@@ -66,7 +66,7 @@ docker run -d --name session-9052 -e SOCKS_PORT=9052 -e API_PORT=5001 --network 
 docker run -d --name session-9054 -e SOCKS_PORT=9054 -e API_PORT=5002 --network host -v ~/thor-logs:/logs thor-session:v1.42
 docker run -d --name session-9056 -e SOCKS_PORT=9056 -e API_PORT=5003 --network host -v ~/thor-logs:/logs thor-session:v1.44
 docker run -d --name session-9058 -e SOCKS_PORT=9058 -e API_PORT=5004 --network host -v ~/thor-logs:/logs thor-session:v1.43
-docker run -d --name session-9060 -e SOCKS_PORT=9060 -e API_PORT=5005 --network host -v ~/thor-logs:/logs thor-session:v1.41
+docker run -d --name session-9060 -e SOCKS_PORT=9060 -e API_PORT=5005 --network host -v ~/thor-logs:/logs thor-session:v1.42
 
 echo "All containers running. Tailing logs..."
 tail -f ~/thor-logs/sessions.log
